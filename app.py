@@ -2,6 +2,7 @@ import streamlit as st
 from operator import index
 import plotly.express as px
 from pycaret.classification import setup, compare_models, pull, save_model, load_model
+from pycaret.regression import setup, compare_models, pull, save_model, load_model
 import ydata_profiling
 import pandas as pd
 from streamlit_pandas_profiling import st_profile_report
