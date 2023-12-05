@@ -33,6 +33,10 @@ if selected == "Dashboard":
 # Classification Trainer Code
 
 if selected == "Classification":
+
+    if os.path.exists('./dataset.csv'):
+        df = pd.read_csv('dataset.csv', index_col=None)
+    
     with st.sidebar:
         st.image("Core.gif")
         st.title("Crystal Ball : Classification Trainer")
@@ -71,6 +75,10 @@ if selected == "Classification":
 # Regression Trainer Code
 
 if selected == "Regression":
+
+    if os.path.exists('./dataset.csv'):
+        df = pd.read_csv('dataset.csv', index_col=None)
+
     with st.sidebar:
         st.image("Core.gif")
         st.title("Crystal Ball : Regression Trainer")
