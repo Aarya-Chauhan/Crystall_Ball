@@ -1,4 +1,7 @@
 import streamlit as st
+import pickle
+import numpy as np
+from streamlit_card import card
 from operator import index
 import plotly.express as px
 from pycaret.classification import setup, compare_models, pull, save_model, load_model
@@ -9,13 +12,14 @@ import pandas as pd
 from streamlit_pandas_profiling import st_profile_report
 import os
 from streamlit_option_menu import option_menu
+from streamlit_image_select import image_select
 
 st.set_page_config(
     page_title="Crystal Ball",
     page_icon="🔮",
     layout="wide",
-
 )
+
 
 des = """The "Crystal Ball" project is a web-based AutoML application. This application is designed to train Machine 
 Learning models on a provided dataset. The images you see represent various aspects of the project. The crystal ball 
@@ -41,7 +45,7 @@ selected = option_menu(
 if selected == "Dashboard":
     la1, la2 = st.columns(2)
     with la1:
-        logo = Image.open("logo.png")
+        logo = Image.open("images/logo.png")
         st.image(logo.resize((480,480)))
     with la2:
         st.title("Crystal Ball")
@@ -55,7 +59,7 @@ if selected == "Classification":
         df = pd.read_csv('dataset.csv', index_col=None)
 
     with st.sidebar:
-        st.image("Core.gif")
+        st.image('images/Core.gif')
         st.title("Crystal Ball : Classification Trainer")
         choice = st.radio(
             "Workflow 👇", ["Upload", "Profiling", "Modelling", "Download"])
@@ -98,7 +102,7 @@ if selected == "Regression":
         df = pd.read_csv('dataset.csv', index_col=None)
 
     with st.sidebar:
-        st.image("Core.gif", use_column_width="always")
+        st.image("images/Core.gif", use_column_width="always")
         st.title("Crystal Ball : Regression Trainer")
         choice = st.radio(
             "Workflow 👇", ["Upload", "Profiling", "Modelling", "Download"])
@@ -134,4 +138,59 @@ if selected == "Regression":
             st.download_button('Download Model', f, file_name="best_model.pkl")
 
 if selected == "Sample Applications":
-    pass
+    options = option_menu(
+    menu_title=None,
+    options=["Player Price Prediction", "Weather prediction", "Predicto", "Anything"],
+    icons=["dribbble", "cloud-sun-fill", "coin", "hourglass"],
+    orientation="horizontal")
+
+    if options == "Player Price Prediction":
+        model = pickle.load(open('pretrained models/model.sav', 'rb'))
+        st.title('Player Salary Prediction')
+        st.sidebar.header('Player Data')
+        image = Image.open('images/football.jpg')
+        st.image(image, '')
+
+
+        # FUNCTION
+        def user_report():
+            rating = st.sidebar.slider('Rating', 50, 100, 1)
+            jersey = st.sidebar.slider('Jersey', 0, 100, 1)
+            team = st.sidebar.slider('Team', 0, 30, 1)
+            position = st.sidebar.slider('Position', 0, 10, 1)
+            country = st.sidebar.slider('Country', 0, 3, 1)
+            draft_year = st.sidebar.slider('Draft Year', 2000, 2020, 2000)
+            draft_round = st.sidebar.slider('Draft Round', 1, 10, 1)
+            draft_peak = st.sidebar.slider('Draft Peak', 1, 30, 1)
+
+            user_report_data = {
+                'rating': rating,
+                'jersey': jersey,
+                'team': team,
+                'position': position,
+                'country': country,
+                'draft_year': draft_year,
+                'draft_round': draft_round,
+                'draft_peak': draft_peak
+            }
+            report_data = pd.DataFrame(user_report_data, index=[0])
+            return report_data
+
+
+        user_data = user_report()
+        st.header('Player Data')
+        st.write(user_data)
+
+        salary = model.predict(user_data)
+        st.subheader('Player Salary')
+        st.subheader('$' + str(np.round(salary[0], 2)))
+
+        if options == "Weather prediction":
+            pass
+
+        if options == "pridicto":
+            pass
+
+        if options == "Anything":
+            pass
+
