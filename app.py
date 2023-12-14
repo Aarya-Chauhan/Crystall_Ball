@@ -13,28 +13,14 @@ from streamlit_pandas_profiling import st_profile_report
 import os
 from streamlit_option_menu import option_menu
 from streamlit_image_select import image_select
-
+###########################################################setting page configs################################################################
 st.set_page_config(
     page_title="Crystal Ball",
     page_icon="🔮",
     layout="wide",
 )
 
-
-des = """The "Crystal Ball" project is a web-based AutoML application. This application is designed to train Machine 
-Learning models on a provided dataset. The images you see represent various aspects of the project. The crystal ball 
-image symbolizes the predictive power of machine learning models, which can "see" patterns in data and make 
-predictions about future data. The high-tech theme of the images reflects the advanced algorithms and computational 
-processes involved in training these models. The web-based nature of the application means that it can be accessed 
-from anywhere with an internet connection, making it highly accessible and user-friendly. Users can upload their 
-datasets, select the type of model they want to train, and then let the application handle the rest. The application 
-will automatically preprocess the data, select the best model parameters, and train the model. Once the model is 
-trained, users can download it for use in their own projects or use it directly within the application to make 
-predictions on new data. Overall, the "Crystal Ball" project represents a powerful tool for anyone looking to 
-leverage the power of machine learning, whether they are experienced data scientists or beginners just starting out 
-in the field."""
-
-# Nav Bar
+######################################################Nav bar#################################33
 selected = option_menu(
     menu_title="Project Crystal Ball",
     options=["Dashboard", "Classification", "Regression", "Sample Applications"],
@@ -42,16 +28,79 @@ selected = option_menu(
     menu_icon="stack",
     orientation="horizontal")
 
+###############################################################################DASHBORAD SECTION###########################################################################
+
 if selected == "Dashboard":
+    body="""
+    <h1 >Welcome to Crystal Ball</h1>
+    <p>Empower Your ML Journey: An Interactive Web AutoML App for Effortless 
+    Model Training, Rapidly Transforming Ideas into Custom Machine Learning Apps</p>
+    <h3>What is Crystal Ball?</h3>
+    <p>Crystal Ball is a powerful tool catering to both seasoned data scientists and beginners. 
+    It harnesses advanced algorithms and computational processes to reveal intricate patterns within your data. 
+    This capability empowers machine learning models to make accurate predictions about future data.</p>
+    <h3>Significance of Crystal Ball</h3>
+    <p>The crystal ball in our project symbolizes the profound predictive power of machine learning models. 
+    These models act as virtual crystal balls, allowing users to foresee patterns and trends in their datasets. 
+    The project's high-tech theme reflects the sophistication of the underlying algorithms,
+    making it a cutting-edge solution for data analysis.</p>
+    """
     la1, la2 = st.columns(2)
     with la1:
         logo = Image.open("images/logo.png")
         st.image(logo.resize((480,480)))
     with la2:
-        st.title("Crystal Ball")
-        st.write(des)
+        st.markdown(body,unsafe_allow_html=True)
 
-# Classification Trainer Code
+    aa1, aa2 = st.columns(2)
+    with aa1:
+        body="""
+        <h1>Instructions to Use</h1>
+        <p>Using Crystal Ball is a straightforward process that involves a few key steps:</p>
+        <h3>Upload Your Dataset:</h3>
+        <p>Begin by uploading your dataset using the "Upload" section. Click on the "Upload Your Dataset" button and select your dataset file. 
+        Crystal Ball supports various file formats, including CSV.</p>
+        <h3>Get Your EDA</h3>
+        <p>Once your dataset is uploaded, explore its characteristics through the "Profiling" section.
+        Crystal Ball performs Exploratory Data Analysis (EDA) to provide insights into the dataset's structure, statistics, and patterns.</p>
+        <h3>Train Your Model</h3>
+        <p>Move on to the "Modelling" section to initiate the model training process. 
+        Choose the target column for your classification or regression task.
+        Crystal Ball automates the setup, compares different models, and selects the best-performing one.</p>
+        <h3>Download Your Model:</h3>
+        <p>After the model is trained, download it for use in your projects. Utilize the "Download" section to obtain the trained model file.</p> 
+        """
+        st.markdown(body, unsafe_allow_html=True)
+    with aa2:
+        pass
+    st.markdown("""<h1 style="text-align:center">Algorithms Used for Crystal Ball</h1>""",unsafe_allow_html=True)
+    st.markdown("""<p>The provided code uses the PyCaret library for AutoML tasks in both classification and regression scenarios.
+     PyCaret internally utilizes a variety of machine learning algorithms, such as Decision Trees, 
+     Random Forest, Gradient Boosting, Support Vector Machines, K-Nearest Neighbors, and more. 
+     The library automatically selects and tunes algorithms based on dataset characteristics and user preferences.</p><p>It's worth noting that users 
+     can customize the selection of
+     algorithms and other parameters according to their specific requirements and preferences.""",unsafe_allow_html=True)
+    st.markdown("""<h1>Explore More</h1>""",unsafe_allow_html=True)
+    bb1, bb2 = st.columns(2)
+    with bb1:
+        body = """
+        <h3>Explore Sample Applications:</h3>
+        <p>If you're new to machine learning or want to explore predefined use cases, check out the "Sample Applications" section. Crystal Ball provides sample 
+        applications like "Player Price Prediction," "Weather Prediction," and more. 
+        Simply follow the prompts and make predictions based on the provided models.</p>
+        """
+        st.markdown(body, unsafe_allow_html=True)
+    with bb2:
+        body="""
+        <h3>Navigate Between Sections:</h3>
+        <p>Use the navigation bar on the left to switch between different sections - "Home," "Dashboard," "Classification," "Regression," and "Sample Applications."
+        Now you're ready to unleash the power of Crystal Ball for your machine learning tasks.
+         Whether you're a data science expert or just starting, Crystal Ball makes the process intuitive and efficient.</p>
+        """
+        st.markdown(body,unsafe_allow_html=True)
+
+
+###################################################################Classification Trainer#################################################################################
 
 if selected == "Classification":
 
@@ -94,7 +143,7 @@ if selected == "Classification":
         with open('best_model.pkl', 'rb') as f:
             st.download_button('Download Model', f, file_name="best_model.pkl")
 
-# Regression Trainer Code
+####################################################################Regression Trainer###########################################################################################
 
 if selected == "Regression":
 
@@ -137,22 +186,67 @@ if selected == "Regression":
         with open('best_model.pkl', 'rb') as f:
             st.download_button('Download Model', f, file_name="best_model.pkl")
 
+########################################################################SAmple Applications###############################################################################
+
 if selected == "Sample Applications":
     options = option_menu(
     menu_title=None,
     options=["About","Player Price Prediction", "Weather prediction", "Predicto", "Anything"],
     icons=["body-text","dribbble", "cloud-sun-fill", "coin", "hourglass"],
     orientation="horizontal")
+####################About sample apps
+    if options == "About":
+        la1, la2 = st.columns(2)
+        with la1:
+            st.image("images/robot.gif")
+        with la2:
+            h1 = """
+            <h1 style="padding-top:65px">
+            Sample Model Significance
+            </h1>
+            <p>Crystal Ball provides sample applications like "Player Price Prediction," "Weather Prediction," and more. 
+            Simply follow the prompts and make predictions based on the provided models.
+            </p>
+            <h3>Models Provided</h3>
+            <ul><li>Player Price Prediction</li><li>Bitcoin Prediction</li><li>Emplyee Churn Prediction</li><li>Anything else</li></ul>
+            <p>The library automatically selects and tunes algorithms based on dataset characteristics and user preferences.</p>
+            """
+            st.markdown(h1,unsafe_allow_html=True)
+        st.markdown("""<h1>Use Cases of Given Sample Models</h1>""",unsafe_allow_html=True)
+        ab1, ab2 = st.columns(2)
+        with ab1:
+            body = """<h3>Bitcoin Price Prediction:</h3>
+            <h5>Use Case:</h5>
+            <p>Crystal Ball includes a sample model for predicting Bitcoin prices, illustrating the application of machine learning in financial markets.</p>
+            <h5>How it Works:</h5>
+            <p>The model is trained on historical Bitcoin price data along with relevant features such as trading volume,
+            market sentiment, and other market indicators. The trained model can then forecast future Bitcoin prices based on the input data.</p>
+            <h5>Significance:</h5>
+            <p>Predicting cryptocurrency prices is a challenging task due to market volatility. 
+            This sample application showcases how machine learning can analyze complex data to provide insights into potential price movements.</p>"""
+            st.markdown(body,unsafe_allow_html=True)
+        with ab2:
+            st.image("images/bitcoin.jpeg")
+        ac1,ac2 = st.columns(2)
+        with ac1:
+            logo = Image.open("images/football.jpg")
+            st.image(logo.resize((500, 450)))
+        with ac2:
+            body = """
+            <h3>Player Price Prediction:</h3>
+            <h5>Use Case:</h5>
+            <p> Crystal Ball offers a sample application for predicting player salaries, demonstrating the application of machine learning in sports analytics.</p>
+            <h5>How it Works:</h5>
+            <p>The model is trained on historical data related to players, including factors like player rating, team, position, draft year, and more. By learning
+            from historical salary data, 
+            the model can predict the salaries of players based on specific input features.</p>
+            <h5>Significance:</h5>
+            <p>This sample application highlights how machine learning can contribute to talent valuation in sports. 
+            It can be valuable for sports teams, agents, and analysts in making informed decisions about player contracts and team composition.</p>
+            """
+            st.markdown(body,unsafe_allow_html=True)
 
-    # if options == "About":
-    #     la1, la2 = st.columns(2)
-    #     with la1:
-    #         logo = Image.open("images/robot.gif")
-    #         st.image(logo.resize((450, 450)))
-    #     with la2:
-    #         st.title("Crystal Ball")
-    #         st.write(des)
-
+################PLAYER PRICE PREDICTION###########################3
     if options == "Player Price Prediction":
         model = pickle.load(open('pretrained models/model.sav', 'rb'))
         st.title('Player Salary Prediction')
@@ -191,7 +285,7 @@ if selected == "Sample Applications":
         salary = model.predict(user_data)
         st.subheader('Player Salary')
         st.subheader('$' + str(np.round(salary[0], 2)))
-
+####################agla vala #################################
         if options == "Weather prediction":
             pass
 
