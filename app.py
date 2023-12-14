@@ -140,9 +140,18 @@ if selected == "Regression":
 if selected == "Sample Applications":
     options = option_menu(
     menu_title=None,
-    options=["Player Price Prediction", "Weather prediction", "Predicto", "Anything"],
-    icons=["dribbble", "cloud-sun-fill", "coin", "hourglass"],
+    options=["About","Player Price Prediction", "Weather prediction", "Predicto", "Anything"],
+    icons=["body-text","dribbble", "cloud-sun-fill", "coin", "hourglass"],
     orientation="horizontal")
+
+    # if options == "About":
+    #     la1, la2 = st.columns(2)
+    #     with la1:
+    #         logo = Image.open("images/robot.gif")
+    #         st.image(logo.resize((450, 450)))
+    #     with la2:
+    #         st.title("Crystal Ball")
+    #         st.write(des)
 
     if options == "Player Price Prediction":
         model = pickle.load(open('pretrained models/model.sav', 'rb'))
@@ -151,8 +160,6 @@ if selected == "Sample Applications":
         image = Image.open('images/football.jpg')
         st.image(image, '')
 
-
-        # FUNCTION
         def user_report():
             rating = st.sidebar.slider('Rating', 50, 100, 1)
             jersey = st.sidebar.slider('Jersey', 0, 100, 1)
