@@ -47,11 +47,11 @@ if selected == "Dashboard":
     """
     la1, la2 = st.columns(2)
     with la1:
-        logo = Image.open("images/logo.png")
-        st.image(logo.resize((480,480)))
+        logo = Image.open("images/logo.jpg")
+        st.image(logo.resize((600,480)))
     with la2:
         st.markdown(body,unsafe_allow_html=True)
-
+    st.markdown("<hr style='border:1px solid grey'>", unsafe_allow_html=True)
     aa1, aa2 = st.columns(2)
     with aa1:
         body="""
@@ -72,7 +72,9 @@ if selected == "Dashboard":
         """
         st.markdown(body, unsafe_allow_html=True)
     with aa2:
-        pass
+        ins = Image.open("images/instructions.jpg")
+        st.image(ins.resize((700, 700)))
+    st.markdown("<hr style='border:1px solid grey'>", unsafe_allow_html=True)
     st.markdown("""<h1 style="text-align:center">Algorithms Used for Crystal Ball</h1>""",unsafe_allow_html=True)
     st.markdown("""<p>The provided code uses the PyCaret library for AutoML tasks in both classification and regression scenarios.
      PyCaret internally utilizes a variety of machine learning algorithms, such as Decision Trees, 
@@ -80,9 +82,10 @@ if selected == "Dashboard":
      The library automatically selects and tunes algorithms based on dataset characteristics and user preferences.</p><p>It's worth noting that users 
      can customize the selection of
      algorithms and other parameters according to their specific requirements and preferences.""",unsafe_allow_html=True)
-    st.markdown("""<h1>Explore More</h1>""",unsafe_allow_html=True)
+    st.markdown("<hr style='border:1px solid grey'>", unsafe_allow_html=True)
     bb1, bb2 = st.columns(2)
     with bb1:
+        st.markdown("""<h1>Explore More</h1>""", unsafe_allow_html=True)
         body = """
         <h3>Explore Sample Applications:</h3>
         <p>If you're new to machine learning or want to explore predefined use cases, check out the "Sample Applications" section. Crystal Ball provides sample 
@@ -90,14 +93,55 @@ if selected == "Dashboard":
         Simply follow the prompts and make predictions based on the provided models.</p>
         """
         st.markdown(body, unsafe_allow_html=True)
+        body2 = """
+                <h3>Navigate Between Sections:</h3>
+                <p>Use the navigation bar on the left to switch between different sections - "Home," "Dashboard," "Classification," "Regression," and "Sample Applications."
+                Now you're ready to unleash the power of Crystal Ball for your machine learning tasks.
+                 Whether you're a data science expert or just starting, Crystal Ball makes the process intuitive and efficient.</p>
+                """
+        st.markdown(body2, unsafe_allow_html=True)
     with bb2:
-        body="""
-        <h3>Navigate Between Sections:</h3>
-        <p>Use the navigation bar on the left to switch between different sections - "Home," "Dashboard," "Classification," "Regression," and "Sample Applications."
-        Now you're ready to unleash the power of Crystal Ball for your machine learning tasks.
-         Whether you're a data science expert or just starting, Crystal Ball makes the process intuitive and efficient.</p>
+        st.image("images/mixoo.jpg")
+
+    st.markdown("<hr style='border:1px solid grey'>", unsafe_allow_html=True)
+    st.markdown("""<h1>Features of Crystal Ball :</h1>""",unsafe_allow_html=True)
+    zz1, zz2 = st.columns(2)
+    with zz1:
+        body = """ 
+        <ul style="list-style-type:none">
+        <li><h3>Interactive Visualizations:</h3>Explore data patterns and model insights through interactive visualizations using advanced libraries like Plotly and Altair. 
+        Users can now interactively analyze predictions and gain a deeper understanding of their datasets.</li>
+        <br>
+        <li><h3>Customization Options:</h3>Empower users with greater control over the machine learning process. Customization options allow users to fine-tune model training parameters,
+         select specific features, and tailor the process to meet their unique requirements.</li>
+         <br>
+         <li><h3>Model Deployment:</h3>Take your trained models beyond the Crystal Ball environment. Users can now deploy their models as 
+          APIs or seamlessly integrate them into other applications for real-world deployment.</li>
+          <br>
+         <li><h3>Model Interpretability:</h3>Transparency is key. The new model interpretability features provide users with explanations for model predictions, 
+         feature importance, and decision boundaries, fostering a better understanding of the model's inner workings.</li>
+        </ul>
         """
         st.markdown(body,unsafe_allow_html=True)
+    with zz2:
+        body="""
+        <ul style="list-style-type:none">
+        <li><h3>Enhanced Profiling:</h3>Dive deeper into data exploration with advanced profiling techniques. Users can now benefit from additional insights, 
+         including correlation analysis, outlier detection, and more comprehensive statistical summaries.</li>
+         <br>
+         <li><h3>Real-Time Data Support:</h3>Crystal Ball is now equipped to handle real-time data, enabling dynamic predictions. This is particularly beneficial for applications requiring up-to-the-minute insights,
+        such as stock price prediction or dynamic weather forecasting.</li>
+        <br>
+        <li><h3>Automated Hyperparameter Tuning:</h3>Fine-tune models effortlessly with the integration of automated hyperparameter tuning. 
+         Crystal Ball now optimizes model performance by automatically adjusting hyperparameters.</li>
+         <br>
+         <li><h3>Documentation and Tutorials:</h3>Navigate Crystal Ball with ease. The comprehensive documentation and tutorials guide users through the application's features, machine learning concepts, 
+        and provide practical examples for enhanced user understanding.</li>
+        """
+        st.markdown(body,unsafe_allow_html=True)
+    st.markdown("""<br><p>These enhancements are a result of our commitment to continuous improvement and user-centric development.
+     We hope you enjoy the upgraded Crystal Ball experience, where machine learning becomes even more accessible, insightful, 
+     and powerful.</p>""",unsafe_allow_html=True)
 
 
 ###################################################################Classification Trainer#################################################################################
@@ -212,10 +256,11 @@ if selected == "Sample Applications":
             <p>The library automatically selects and tunes algorithms based on dataset characteristics and user preferences.</p>
             """
             st.markdown(h1,unsafe_allow_html=True)
+        st.markdown("<hr style='border:1px solid grey'>", unsafe_allow_html=True)
         st.markdown("""<h1>Use Cases of Given Sample Models</h1>""",unsafe_allow_html=True)
         ab1, ab2 = st.columns(2)
         with ab1:
-            body = """<h3>Bitcoin Price Prediction:</h3>
+            body = """<h3 style="padding-top:40px">Bitcoin Price Prediction:</h3>
             <h5>Use Case:</h5>
             <p>Crystal Ball includes a sample model for predicting Bitcoin prices, illustrating the application of machine learning in financial markets.</p>
             <h5>How it Works:</h5>
@@ -226,14 +271,27 @@ if selected == "Sample Applications":
             This sample application showcases how machine learning can analyze complex data to provide insights into potential price movements.</p>"""
             st.markdown(body,unsafe_allow_html=True)
         with ab2:
-            st.image("images/bitcoin.jpeg")
+            col1, col2, col3 = st.columns([2, 6, 2])
+            with col1:
+                st.write("")
+            with col2:
+                st.image("images/bitcoin.gif")
+            with col3:
+                st.write("")
+        st.markdown("<hr style='border:1px solid grey'>", unsafe_allow_html=True)
+
         ac1,ac2 = st.columns(2)
         with ac1:
-            logo = Image.open("images/football.jpg")
-            st.image(logo.resize((500, 450)))
+            c1,c2,c3 = st.columns([1,6,2])
+            with c1:
+                st.write("")
+            with c2:
+                st.image("images/football.gif")
+            with c3:
+                st.write("")
         with ac2:
             body = """
-            <h3>Player Price Prediction:</h3>
+            <h3 style="margin-top:40px">Player Price Prediction:</h3>
             <h5>Use Case:</h5>
             <p> Crystal Ball offers a sample application for predicting player salaries, demonstrating the application of machine learning in sports analytics.</p>
             <h5>How it Works:</h5>
