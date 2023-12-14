@@ -152,7 +152,7 @@ if selected == "Classification":
         df = pd.read_csv('dataset.csv', index_col=None)
 
     with st.sidebar:
-        st.image('images/Core.gif')
+        st.image('images/clss.jpg')
         st.title("Crystal Ball : Classification Trainer")
         choice = st.radio(
             "Workflow 👇", ["Upload", "Profiling", "Modelling", "Download"])
@@ -195,7 +195,7 @@ if selected == "Regression":
         df = pd.read_csv('dataset.csv', index_col=None)
 
     with st.sidebar:
-        st.image("images/Core.gif", use_column_width="always")
+        st.image("images/reg.jpg", use_column_width="always")
         st.title("Crystal Ball : Regression Trainer")
         choice = st.radio(
             "Workflow 👇", ["Upload", "Profiling", "Modelling", "Download"])
@@ -235,8 +235,8 @@ if selected == "Regression":
 if selected == "Sample Applications":
     options = option_menu(
     menu_title=None,
-    options=["About","Player Price Prediction", "Weather prediction", "Predicto", "Anything"],
-    icons=["body-text","dribbble", "cloud-sun-fill", "coin", "hourglass"],
+    options=["About","Employee Churn Prediction", "Bitcoin Price Prediction", "Player Price Prediction", "Anything"],
+    icons=["body-text", "hourglass","coin","dribbble", "cloud-sun-fill"],
     orientation="horizontal")
 ####################About sample apps
     if options == "About":
@@ -258,9 +258,28 @@ if selected == "Sample Applications":
             st.markdown(h1,unsafe_allow_html=True)
         st.markdown("<hr style='border:1px solid grey'>", unsafe_allow_html=True)
         st.markdown("""<h1>Use Cases of Given Sample Models</h1>""",unsafe_allow_html=True)
+        cc1, cc2 = st.columns(2)
+        with cc1:
+            ins = Image.open("images/employee churn.jpg")
+            st.image(ins.resize((650, 420)))
+        with cc2:
+            body = """
+                                <h3>Employee Churn Prediction:</h3>
+                                <h5>Use Case:</h5>
+                                <p> Crystal Ball offers a sample application for predicting player salaries, demonstrating the application of machine learning in sports analytics.</p>
+                                <h5>How it Works:</h5>
+                                <p>The model is trained on historical data related to players, including factors like player rating, team, position, draft year, and more. By learning
+                                from historical salary data, 
+                                the model can predict the salaries of players based on specific input features.</p>
+                                <h5>Significance:</h5>
+                                <p>This sample application highlights how machine learning can contribute to talent valuation in sports. 
+                                It can be valuable for sports teams, agents, and analysts in making informed decisions about player contracts and team composition.</p>
+                                """
+            st.markdown(body, unsafe_allow_html=True)
+        st.markdown("<hr style='border:1px solid grey'>", unsafe_allow_html=True)
         ab1, ab2 = st.columns(2)
-        with ab1:
-            body = """<h3 style="padding-top:40px">Bitcoin Price Prediction:</h3>
+        with ab2:
+            body = """<h3>Bitcoin Price Prediction:</h3>
             <h5>Use Case:</h5>
             <p>Crystal Ball includes a sample model for predicting Bitcoin prices, illustrating the application of machine learning in financial markets.</p>
             <h5>How it Works:</h5>
@@ -270,28 +289,17 @@ if selected == "Sample Applications":
             <p>Predicting cryptocurrency prices is a challenging task due to market volatility. 
             This sample application showcases how machine learning can analyze complex data to provide insights into potential price movements.</p>"""
             st.markdown(body,unsafe_allow_html=True)
-        with ab2:
-            col1, col2, col3 = st.columns([2, 6, 2])
-            with col1:
-                st.write("")
-            with col2:
-                st.image("images/bitcoin.gif")
-            with col3:
-                st.write("")
+        with ab1:
+            ins = Image.open("images/bitcoin.jpg")
+            st.image(ins.resize((650, 420)))
         st.markdown("<hr style='border:1px solid grey'>", unsafe_allow_html=True)
-
         ac1,ac2 = st.columns(2)
         with ac1:
-            c1,c2,c3 = st.columns([1,6,2])
-            with c1:
-                st.write("")
-            with c2:
-                st.image("images/football.gif")
-            with c3:
-                st.write("")
+            ins = Image.open("images/football (2).jpg")
+            st.image(ins.resize((650, 420)))
         with ac2:
             body = """
-            <h3 style="margin-top:40px">Player Price Prediction:</h3>
+            <h3>Player Price Prediction:</h3>
             <h5>Use Case:</h5>
             <p> Crystal Ball offers a sample application for predicting player salaries, demonstrating the application of machine learning in sports analytics.</p>
             <h5>How it Works:</h5>
@@ -303,13 +311,16 @@ if selected == "Sample Applications":
             It can be valuable for sports teams, agents, and analysts in making informed decisions about player contracts and team composition.</p>
             """
             st.markdown(body,unsafe_allow_html=True)
+        st.markdown("<hr style='border:1px solid grey'>", unsafe_allow_html=True)
+
+
 
 ################PLAYER PRICE PREDICTION###########################3
     if options == "Player Price Prediction":
         model = pickle.load(open('pretrained models/model.sav', 'rb'))
         st.title('Player Salary Prediction')
         st.sidebar.header('Player Data')
-        image = Image.open('images/football.jpg')
+        image = Image.open('images/football (2).jpg')
         st.image(image, '')
 
         def user_report():
