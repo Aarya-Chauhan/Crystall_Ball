@@ -240,7 +240,7 @@ if selected == "Regression":
 if selected == "Sample Applications":
     options = option_menu(
     menu_title=None,
-    options=["About","Employee Churn Prediction", "Bitcoin Price Prediction", "Player Price Prediction", "Announcements"],
+    options=["About","Employee Churn Analysis", "Bitcoin Price Prediction", "Player Price Prediction", "Announcements"],
     icons=["body-text", "briefcase","coin","dribbble", "megaphone"],
     orientation="horizontal")
 ####################About sample apps
