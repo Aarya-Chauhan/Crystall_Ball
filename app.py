@@ -75,33 +75,41 @@ if selected == "Dashboard":
         ins = Image.open("images/instructions.jpg")
         st.image(ins.resize((700, 700)))
     st.markdown("<hr style='border:1px solid grey'>", unsafe_allow_html=True)
-    st.markdown("""<h1 style="text-align:center">Algorithms Used for Crystal Ball</h1>""",unsafe_allow_html=True)
+    st.markdown("""<h1 style="text-align:center">How Crystal Ball Works</h1>""",unsafe_allow_html=True)
     st.markdown("""<p>The provided code uses the PyCaret library for AutoML tasks in both classification and regression scenarios.
      PyCaret internally utilizes a variety of machine learning algorithms, such as Decision Trees, 
      Random Forest, Gradient Boosting, Support Vector Machines, K-Nearest Neighbors, and more. 
-     The library automatically selects and tunes algorithms based on dataset characteristics and user preferences.</p><p>It's worth noting that users 
+     The library automatically selects and tunes algorithms based on dataset characteristics and user preferences.</p>
+     <p>It's worth noting that users 
      can customize the selection of
-     algorithms and other parameters according to their specific requirements and preferences.""",unsafe_allow_html=True)
+     algorithms and other parameters according to their specific requirements and preferences.</p>
+     <p>The AutoML pipeline in the project is implemented by PyCaret. 
+     It is an open-source, low-code machine-learning library in Python that automates machine-learning workflows.
+      It is designed to make performing standard tasks in a machine learning project easy1. 
+      PyCaret is a Python version of the Caret machine learning package in R. 
+     It is popular because it allows models to be evaluated, compared, and tuned on a given dataset with just a 
+     few lines of code.</p>""",unsafe_allow_html=True)
     st.markdown("<hr style='border:1px solid grey'>", unsafe_allow_html=True)
+    st.markdown("""<h1>Explore More</h1>""", unsafe_allow_html=True)
     bb1, bb2 = st.columns(2)
     with bb1:
-        st.markdown("""<h1>Explore More</h1>""", unsafe_allow_html=True)
         body = """
         <h3>Explore Sample Applications:</h3>
         <p>If you're new to machine learning or want to explore predefined use cases, check out the "Sample Applications" section. Crystal Ball provides sample 
-        applications like "Player Price Prediction," "Weather Prediction," and more. 
+        applications like <ul><li> Player Price Prediction</li> <li>Bitcoin Price Prediction</li> and more. 
         Simply follow the prompts and make predictions based on the provided models.</p>
         """
         st.markdown(body, unsafe_allow_html=True)
         body2 = """
                 <h3>Navigate Between Sections:</h3>
-                <p>Use the navigation bar on the left to switch between different sections - "Home," "Dashboard," "Classification," "Regression," and "Sample Applications."
+                <p>Use the navigation bar on the left to switch between different sections <ul> <li>Dashboard</li> <li>Classification</li> <li>Regression</li>  <li>Sample Applications</li></ul>
                 Now you're ready to unleash the power of Crystal Ball for your machine learning tasks.
                  Whether you're a data science expert or just starting, Crystal Ball makes the process intuitive and efficient.</p>
                 """
         st.markdown(body2, unsafe_allow_html=True)
     with bb2:
-        st.image("images/mixoo.jpg")
+        logo = Image.open("images/mixoo.jpg")
+        st.image(logo.resize((650, 500)))
 
     st.markdown("<hr style='border:1px solid grey'>", unsafe_allow_html=True)
     st.markdown("""<h1>Features of Crystal Ball :</h1>""",unsafe_allow_html=True)
@@ -109,39 +117,36 @@ if selected == "Dashboard":
     with zz1:
         body = """ 
         <ul style="list-style-type:none">
-        <li><h3>Interactive Visualizations:</h3>Explore data patterns and model insights through interactive visualizations using advanced libraries like Plotly and Altair. 
-        Users can now interactively analyze predictions and gain a deeper understanding of their datasets.</li>
+        <li><h3>Interactive Visualizations:</h3>Explore data patterns and model insights through interactive visualizations using advanced libraries like Plotly and seaborn. 
+        Users can now interactively analyze predictions and gain a deeper understanding of their datasets with visuals like bargraphs, heatmaps and correlation matrices.</li>
         <br>
-        <li><h3>Customization Options:</h3>Empower users with greater control over the machine learning process. Customization options allow users to fine-tune model training parameters,
-         select specific features, and tailor the process to meet their unique requirements.</li>
+        <li><h3>Web Based ML Dashboard:</h3>Crystal ball is deployed as a web-app which can be accessed on any device,
+         allowing users to train machine learning models and generate reporst on datsets on the go. This will greately improve its accessibility
+          as well as it will make ML avaialble to all.</li>
          <br>
-         <li><h3>Model Deployment:</h3>Take your trained models beyond the Crystal Ball environment. Users can now deploy their models as 
-          APIs or seamlessly integrate them into other applications for real-world deployment.</li>
-          <br>
-         <li><h3>Model Interpretability:</h3>Transparency is key. The new model interpretability features provide users with explanations for model predictions, 
-         feature importance, and decision boundaries, fostering a better understanding of the model's inner workings.</li>
+         <li><h3>Model Deployment:</h3>Final output of crystal ball is a trained models,so that you can deploy these models into any machine learning application easily. 
+          These pretrained pickled models a can be easily integrated into language independent machine learning apps to be deployed in projects of all scales.</li>
         </ul>
         """
         st.markdown(body,unsafe_allow_html=True)
     with zz2:
         body="""
         <ul style="list-style-type:none">
-        <li><h3>Enhanced Profiling:</h3>Dive deeper into data exploration with advanced profiling techniques. Users can now benefit from additional insights, 
-         including correlation analysis, outlier detection, and more comprehensive statistical summaries.</li>
-         <br>
-         <li><h3>Real-Time Data Support:</h3>Crystal Ball is now equipped to handle real-time data, enabling dynamic predictions. This is particularly beneficial for applications requiring up-to-the-minute insights,
-        such as stock price prediction or dynamic weather forecasting.</li>
+        <li><h3>Automated EDA:</h3>The framework performs exploratory data analysis on all the input datasets to 
+        generate a comprehensive report on data parameters, outlyers, null values and high-correlations between the 
+        data items so that user has 
+        understanding of dataset and based on it can decide to whether move forward to train models or not.</li>
         <br>
-        <li><h3>Automated Hyperparameter Tuning:</h3>Fine-tune models effortlessly with the integration of automated hyperparameter tuning. 
-         Crystal Ball now optimizes model performance by automatically adjusting hyperparameters.</li>
-         <br>
          <li><h3>Documentation and Tutorials:</h3>Navigate Crystal Ball with ease. The comprehensive documentation and tutorials guide users through the application's features, machine learning concepts, 
         and provide practical examples for enhanced user understanding.</li>
+        <br>
+         <li><h3>Model Statistics:</h3>The dashboard provides all performance stats for all trained models to correctly
+          back the claims for best models which it provides in download section enabling the users to understand, 
+          how a particular model is better performing than rest. </li>
         """
         st.markdown(body,unsafe_allow_html=True)
-    st.markdown("""<br><p>These enhancements are a result of our commitment to continuous improvement and user-centric development.
-     We hope you enjoy the upgraded Crystal Ball experience, where machine learning becomes even more accessible, insightful, 
-     and powerful.</p>""",unsafe_allow_html=True)
+    st.markdown("<hr style='border:1px dashed black'>", unsafe_allow_html=True)
+    st.markdown("""<br><b style=" margin-bottom:0px padding-bottom:0px">Crystall Ball aims to make machine learning accessible to all as an Intutive user friendly tool which lets everyone use powers of Machine Learning irrespective of their coding and technical skills.</b>""",unsafe_allow_html=True)
 
 
 ###################################################################Classification Trainer#################################################################################
@@ -235,8 +240,8 @@ if selected == "Regression":
 if selected == "Sample Applications":
     options = option_menu(
     menu_title=None,
-    options=["About","Employee Churn Prediction", "Bitcoin Price Prediction", "Player Price Prediction", "Anything"],
-    icons=["body-text", "hourglass","coin","dribbble", "cloud-sun-fill"],
+    options=["About","Employee Churn Prediction", "Bitcoin Price Prediction", "Player Price Prediction", "Announcements"],
+    icons=["body-text", "briefcase","coin","dribbble", "megaphone"],
     orientation="horizontal")
 ####################About sample apps
     if options == "About":
@@ -248,16 +253,18 @@ if selected == "Sample Applications":
             <h1 style="padding-top:65px">
             Sample Model Significance
             </h1>
-            <p>Crystal Ball provides sample applications like "Player Price Prediction," "Weather Prediction," and more. 
-            Simply follow the prompts and make predictions based on the provided models.
+            <p>Crystal ball also provides some sample models just to showcase how machine learning can really enable 
+            you to see into the future by making 
+            predictions on data by learning from it. These models are just a showcase for displaying the capabilities of 
+            the models trained on the Crystal Ball dashboard.
             </p>
             <h3>Models Provided</h3>
-            <ul><li>Player Price Prediction</li><li>Bitcoin Prediction</li><li>Emplyee Churn Prediction</li><li>Anything else</li></ul>
+            <ul><li>Employee Churn Prediction</li><li>Bitcoin Price Prediction</li><li>Player Price Prediction</li></ul>
             <p>The library automatically selects and tunes algorithms based on dataset characteristics and user preferences.</p>
             """
             st.markdown(h1,unsafe_allow_html=True)
         st.markdown("<hr style='border:1px solid grey'>", unsafe_allow_html=True)
-        st.markdown("""<h1>Use Cases of Given Sample Models</h1>""",unsafe_allow_html=True)
+        st.markdown("""<h1>Introduction to our sample apps.</h1>""",unsafe_allow_html=True)
         cc1, cc2 = st.columns(2)
         with cc1:
             ins = Image.open("images/employee churn.jpg")
@@ -354,13 +361,23 @@ if selected == "Sample Applications":
         salary = model.predict(user_data)
         st.subheader('Player Salary')
         st.subheader('$' + str(np.round(salary[0], 2)))
-####################agla vala #################################
-        if options == "Weather prediction":
-            pass
+    if options == "Announcements":
+        col1, col2, col3 = st.columns([2, 6, 2])
 
-        if options == "pridicto":
-            pass
+        with col1:
+            st.write("")
 
-        if options == "Anything":
-            pass
+        with col2:
+            st.markdown("""<br>""",unsafe_allow_html=True)
+            st.image("images/Core.gif")
+            st.markdown("""<h1>More Updates On The Way . . . . """,unsafe_allow_html=True)
+
+        with col3:
+            st.write("")
+
+
+
+
+
+
 
