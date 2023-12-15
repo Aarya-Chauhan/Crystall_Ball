@@ -2,3 +2,5 @@ env
 .idea/
 .vscode/
 logs.log
+dataset.csv
+best_model.pkl
