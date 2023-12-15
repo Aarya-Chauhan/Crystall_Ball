@@ -268,20 +268,26 @@ if selected == "Sample Applications":
         cc1, cc2 = st.columns(2)
         with cc1:
             ins = Image.open("images/employee churn.jpg")
-            st.image(ins.resize((650, 420)))
+            st.image(ins.resize((650, 500)))
         with cc2:
             body = """
-                                <h3>Employee Churn Prediction:</h3>
-                                <h5>Use Case:</h5>
-                                <p> Crystal Ball offers a sample application for predicting player salaries, demonstrating the application of machine learning in sports analytics.</p>
-                                <h5>How it Works:</h5>
-                                <p>The model is trained on historical data related to players, including factors like player rating, team, position, draft year, and more. By learning
-                                from historical salary data, 
-                                the model can predict the salaries of players based on specific input features.</p>
-                                <h5>Significance:</h5>
-                                <p>This sample application highlights how machine learning can contribute to talent valuation in sports. 
-                                It can be valuable for sports teams, agents, and analysts in making informed decisions about player contracts and team composition.</p>
-                                """
+            <h3>Employee Churn Analysis</h3>
+            <h5>Use Case:</h5>
+            <p>In the realm of workforce management, Crystal Ball presents a powerful application for Employee Churn Analysis,
+             showcasing the practical application of machine learning in HR analytics.</p>
+            <h5>How it Works:</h5>
+            <p>Our model is meticulously trained on historical employee data, encompassing various factors such as job satisfaction,
+             last evaluation, number of projects, average monthly hours, time spent in the company, work accidents, promotions in the 
+             last 5 years, department, and salary.
+             Leveraging this rich historical dataset, the model can predict employee churn based on these specific input features.</p>
+            <h5>Significance:</h5>
+            <p>This application serves as a beacon for the strategic use of machine 
+            learning in understanding and predicting employee turnover. HR professionals, executives, 
+            and analysts can harness the insights provided by the model to make informed decisions about 
+            talent retention strategies, team composition, and overall workforce management. By identifying potential churn patterns, 
+            organizations can proactively address employee satisfaction and engagement,
+            ultimately contributing to a more stable and productive work environment.</p>"""
+
             st.markdown(body, unsafe_allow_html=True)
         st.markdown("<hr style='border:1px solid grey'>", unsafe_allow_html=True)
         ab1, ab2 = st.columns(2)
