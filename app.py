@@ -387,8 +387,6 @@ if selected == "Sample Applications":
         ################Employee Churn Analysis###########################3
 
     if options == "Employee Churn Analysis":
-        import pandas as pd
-        import os
         import matplotlib.pyplot as plt
         import seaborn as sns
         from sklearn.cluster import KMeans
@@ -580,15 +578,7 @@ if selected == "Sample Applications":
         if choice == "Predict Churn":
             st.title("Employee Churn Prediction")
             user_report_data = {
-                'satisfaction_level': st.sidebar.slider('Satisfaction Level', 0.0, 1.0, 0.5),
-                'last_evaluation': st.sidebar.slider('Last Evaluation', 0.0, 1.0, 0.5),
-                'number_project': st.sidebar.slider('Number of Projects', 2, 7, 4),
-                'average_montly_hours': st.sidebar.slider('Average Monthly Hours', 80, 300, 160),
-                'time_spend_company': st.sidebar.slider('Time Spent in Company', 2, 10, 3),
-                'Work_accident': st.sidebar.selectbox('Work Accident', [0, 1]),
-                'promotion_last_5years': st.sidebar.selectbox('Promotion in Last 5 Years', [0, 1]),
-                'Departments ': st.sidebar.selectbox('Department', df['Departments '].unique()),
-                'salary': st.sidebar.selectbox('Salary', df['salary'].unique())
+            'salary': st.sidebar.selectbox('Salary', df['salary'].unique())
             }
             user_data = pd.DataFrame(user_report_data, index=[0])
             st.header('Employee Data for Prediction')
@@ -611,13 +601,10 @@ if selected == "Sample Applications":
     ################Bitcoin Prediction###########################3
 
     if options == "Bitcoin Price Prediction":
-        import os
         import seaborn as sns
         import matplotlib.pyplot as plt
-        import numpy as np
-        import pandas as pd
         import seaborn as sb
-        import streamlit as st
+
 
         if os.path.exists('./datasets/BTC-USD.csv'):
             df = pd.read_csv('datasets/BTC-USD.csv', index_col=None)
