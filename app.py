@@ -387,7 +387,6 @@ if selected == "Sample Applications":
         ################Employee Churn Analysis###########################3
 
     if options == "Employee Churn Analysis":
-        import streamlit as st
         import pandas as pd
         import os
         import matplotlib.pyplot as plt
@@ -403,11 +402,8 @@ if selected == "Sample Applications":
         model = pickle.load(open('pretrained models/employee_churn_model.pkl', 'rb'))
 
         # Load the CSV file
-        csv_path = "datasets/HR_comma_sep.csv"
-        if os.path.isfile(csv_path):
-            df = pd.read_csv(csv_path)
-        else:
-            st.error("CSV file not found. Please check the file path.")
+        if os.path.exists('./datasets/HR_comma_sep.csv'):
+            df = pd.read_csv('datasets/HR_comma_sep.csv', index_col=None)
 
         features_for_prediction = ['satisfaction_level', 'last_evaluation', 'number_project',
                                    'average_montly_hours', 'time_spend_company', 'Work_accident',
@@ -417,8 +413,8 @@ if selected == "Sample Applications":
         # Function to handle user input for clustering analysis
         def user_report():
             # Assuming df is your DataFrame containing historical employee data
-            csv_path = "HR_comma_sep.csv"
-            df = pd.read_csv(csv_path)
+            if os.path.exists('./datasets/HR_comma_sep.csv'):
+                df = pd.read_csv('datasets/HR_comma_sep.csv', index_col=None)
 
             # Create an empty dictionary to store user input data
             user_data = {}
@@ -456,7 +452,7 @@ if selected == "Sample Applications":
 
         # Streamlit App
         with st.sidebar:
-            st.image("images/employee churn.jpg")
+            st.image('images/employee churn.jpg')
             st.title("Employee Churn")
             choice = st.radio("Navigation",
                               ["Profiling", "Stayed vs. Left: Employee Data Comparison",
@@ -770,4 +766,3 @@ if selected == "Sample Applications":
             # Check if selected columns exist in the grouped DataFrame
             valid_columns = [col for col in selected_columns if col in data_grouped.columns]
             st.bar_chart(data_grouped[valid_columns])
-
