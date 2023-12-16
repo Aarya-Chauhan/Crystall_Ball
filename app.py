@@ -14,14 +14,14 @@ import os
 from streamlit_option_menu import option_menu
 from streamlit_image_select import image_select
 
-###########################################################setting page configs################################################################
+#SETTING PAGE CONFIGURATIONS============================================================================================================
 st.set_page_config(
     page_title="Crystal Ball",
     page_icon="🔮",
     layout="wide",
 )
 
-######################################################Nav bar#################################33
+#MAIN NAVBAR============================================================================================================================
 selected = option_menu(
     menu_title="Project Crystal Ball",
     options=["Dashboard", "Classification", "Regression", "Sample Applications"],
@@ -29,7 +29,7 @@ selected = option_menu(
     menu_icon="stack",
     orientation="horizontal")
 
-###############################################################################DASHBORAD SECTION###########################################################################
+#DASHBOARD SECTION======================================================================================================================
 
 if selected == "Dashboard":
     body = """
@@ -151,7 +151,7 @@ if selected == "Dashboard":
         """<br><b style=" margin-bottom:0px padding-bottom:0px">Crystall Ball aims to make machine learning accessible to all as an Intutive user friendly tool which lets everyone use powers of Machine Learning irrespective of their coding and technical skills.</b>""",
         unsafe_allow_html=True)
 
-###################################################################Classification Trainer#################################################################################
+#CLASSIFICATION TRAINER=================================================================================================================
 
 if selected == "Classification":
 
@@ -194,7 +194,7 @@ if selected == "Classification":
         with open('best_model.pkl', 'rb') as f:
             st.download_button('Download Model', f, file_name="best_model.pkl")
 
-####################################################################Regression Trainer###########################################################################################
+#REGRESSION TRAINER=====================================================================================================================
 
 if selected == "Regression":
 
@@ -237,7 +237,7 @@ if selected == "Regression":
         with open('best_model.pkl', 'rb') as f:
             st.download_button('Download Model', f, file_name="best_model.pkl")
 
-########################################################################SAmple Applications###############################################################################
+#SAMPLE APPLICATION=====================================================================================================================
 
 if selected == "Sample Applications":
     options = option_menu(
@@ -246,7 +246,7 @@ if selected == "Sample Applications":
                  "Announcements"],
         icons=["body-text", "briefcase", "coin", "dribbble", "megaphone"],
         orientation="horizontal")
-    ####################Announcements
+    #ANNOUNCEMENTS
     if options == "Announcements":
         col1, col2, col3 = st.columns([2, 6, 2])
 
@@ -260,7 +260,7 @@ if selected == "Sample Applications":
 
         with col3:
             st.write("")
-    ########################About section
+    #ABOUT SECTION
     if options == "About":
         la1, la2 = st.columns(2)
         with la1:
@@ -343,14 +343,13 @@ if selected == "Sample Applications":
             st.markdown(body, unsafe_allow_html=True)
         st.markdown("<hr style='border:1px solid grey'>", unsafe_allow_html=True)
 
-    ################Player Price  PREDICTION###########################3
+    #PLAYER PRICE PREDICTION
     if options == "Player Price Prediction":
         model = pickle.load(open('pretrained models/model.sav', 'rb'))
         st.title('Player Salary Prediction')
         st.sidebar.header('Player Data')
         image = Image.open('images/football (2).jpg')
         st.image(image, '')
-
 
         def user_report():
             rating = st.sidebar.slider('Rating', 50, 100, 1)
@@ -384,8 +383,7 @@ if selected == "Sample Applications":
         st.subheader('Player Salary')
         st.subheader('$' + str(np.round(salary[0], 2)))
 
-        ################Employee Churn Analysis###########################3
-
+    #EMPLOYEE CHURN ANALYSIS
     if options == "Employee Churn Analysis":
         import matplotlib.pyplot as plt
         import seaborn as sns
@@ -407,8 +405,6 @@ if selected == "Sample Applications":
                                    'average_montly_hours', 'time_spend_company', 'Work_accident',
                                    'promotion_last_5years', 'Departments ', 'salary']
 
-
-        # Function to handle user input for clustering analysis
         def user_report():
             # Assuming df is your DataFrame containing historical employee data
             if os.path.exists('./datasets/HR_comma_sep.csv'):
@@ -440,15 +436,12 @@ if selected == "Sample Applications":
             st.dataframe(b)
 
 
-        # Apply label encoding to categorical columns
         df['Departments '] = LabelEncoder().fit_transform(df['Departments '])
         df['salary'] = LabelEncoder().fit_transform(df['salary'])
 
-        # Handle missing values if any
         if df.isnull().any().any():
             df = df.fillna(df.mean())
 
-        # Streamlit App
         with st.sidebar:
             st.image('images/employee churn.jpg')
             st.title("Employee Churn")
@@ -598,7 +591,7 @@ if selected == "Sample Applications":
                 st.subheader('Churn Prediction Result')
                 st.write(churn_prediction)
 
-    ################Bitcoin Prediction###########################3
+    #BITCOIN PRICE PREDICTION
 
     if options == "Bitcoin Price Prediction":
         import seaborn as sns
