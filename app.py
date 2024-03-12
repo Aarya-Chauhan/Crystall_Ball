@@ -1,7 +1,6 @@
 import streamlit as st
 import pickle
 import numpy as np
-from streamlit_card import card
 from operator import index
 import plotly.express as px
 from pycaret.classification import setup, compare_models, pull, save_model, load_model
