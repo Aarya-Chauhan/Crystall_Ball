@@ -58,17 +58,20 @@ if selected == "Dashboard":
         <h1>Instructions to Use</h1>
         <p>Using Crystal Ball is a straightforward process that involves a few key steps:</p>
         <h3>Upload Your Dataset:</h3>
-        <p>Begin by uploading your dataset using the "Upload" section. Click on the "Upload Your Dataset" button and select your dataset file. 
+        <p>Begin by uploading your dataset using the "Upload" section. Click on the "Upload Your Dataset" button and 
+        select your dataset file. 
         Crystal Ball supports various file formats, including CSV.</p>
         <h3>Get Your EDA</h3>
         <p>Once your dataset is uploaded, explore its characteristics through the "Profiling" section.
-        Crystal Ball performs Exploratory Data Analysis (EDA) to provide insights into the dataset's structure, statistics, and patterns.</p>
+        Crystal Ball performs Exploratory Data Analysis (EDA) to provide insights into the dataset's structure, statistics, 
+        and patterns.</p>
         <h3>Train Your Model</h3>
         <p>Move on to the "Modelling" section to initiate the model training process. 
         Choose the target column for your classification or regression task.
         Crystal Ball automates the setup, compares different models, and selects the best-performing one.</p>
         <h3>Download Your Model:</h3>
-        <p>After the model is trained, download it for use in your projects. Utilize the "Download" section to obtain the trained model file.</p> 
+        <p>After the model is trained, download it for use in your projects. Utilize the "Download" section to obtain the trained model 
+        file.</p> 
         """
         st.markdown(body, unsafe_allow_html=True)
     with aa2:
@@ -95,14 +98,16 @@ if selected == "Dashboard":
     with bb1:
         body = """
         <h3>Explore Sample Applications:</h3>
-        <p>If you're new to machine learning or want to explore predefined use cases, check out the "Sample Applications" section. Crystal Ball provides sample 
+        <p>If you're new to machine learning or want to explore predefined use cases, check out the "Sample Applications" section.
+         Crystal Ball provides sample 
         applications like <ul><li> Player Price Prediction</li> <li>Bitcoin Price Prediction</li> and more. 
         Simply follow the prompts and make predictions based on the provided models.</p>
         """
         st.markdown(body, unsafe_allow_html=True)
         body2 = """
                 <h3>Navigate Between Sections:</h3>
-                <p>Use the navigation bar on the left to switch between different sections <ul> <li>Dashboard</li> <li>Classification</li> <li>Regression</li>  <li>Sample Applications</li></ul>
+                <p>Use the navigation bar on the left to switch between different sections <ul> <li>Dashboard</li> <li>Classification</li>
+                 <li>Regression</li>  <li>Sample Applications</li></ul>
                 Now you're ready to unleash the power of Crystal Ball for your machine learning tasks.
                  Whether you're a data science expert or just starting, Crystal Ball makes the process intuitive and efficient.</p>
                 """
@@ -117,15 +122,20 @@ if selected == "Dashboard":
     with zz1:
         body = """ 
         <ul style="list-style-type:none">
-        <li><h3>Interactive Visualizations:</h3>Explore data patterns and model insights through interactive visualizations using advanced libraries like Plotly and seaborn. 
-        Users can now interactively analyze predictions and gain a deeper understanding of their datasets with visuals like bargraphs, heatmaps and correlation matrices.</li>
+        <li><h3>Interactive Visualizations:</h3>Explore data patterns and model insights through interactive visualizations using 
+        advanced libraries like Plotly and seaborn. 
+        Users can now interactively analyze predictions and gain a deeper understanding of their datasets with visuals like bargraphs,
+         heatmaps and correlation matrices.</li>
         <br>
         <li><h3>Web Based ML Dashboard:</h3>Crystal ball is deployed as a web-app which can be accessed on any device,
-         allowing users to train machine learning models and generate reporst on datsets on the go. This will greately improve its accessibility
+         allowing users to train machine learning models and generate reporst on datsets on the go. This will greately improve its 
+         accessibility
           as well as it will make ML avaialble to all.</li>
          <br>
-         <li><h3>Model Deployment:</h3>Final output of crystal ball is a trained models,so that you can deploy these models into any machine learning application easily. 
-          These pretrained pickled models a can be easily integrated into language independent machine learning apps to be deployed in projects of all scales.</li>
+         <li><h3>Model Deployment:</h3>Final output of crystal ball is a trained models,so that you can deploy these models 
+         into any machine learning application easily. 
+          These pretrained pickled models a can be easily integrated into language independent machine learning apps to be
+           deployed in projects of all scales.</li>
         </ul>
         """
         st.markdown(body, unsafe_allow_html=True)
@@ -137,7 +147,8 @@ if selected == "Dashboard":
         data items so that user has 
         understanding of dataset and based on it can decide to whether move forward to train models or not.</li>
         <br>
-         <li><h3>Documentation and Tutorials:</h3>Navigate Crystal Ball with ease. The comprehensive documentation and tutorials guide users through the application's features, machine learning concepts, 
+         <li><h3>Documentation and Tutorials:</h3>Navigate Crystal Ball with ease. The comprehensive documentation and tutorials
+          guide users through the application's features, machine learning concepts, 
         and provide practical examples for enhanced user understanding.</li>
         <br>
          <li><h3>Model Statistics:</h3>The dashboard provides all performance stats for all trained models to correctly
@@ -147,11 +158,12 @@ if selected == "Dashboard":
         st.markdown(body, unsafe_allow_html=True)
     st.markdown("<hr style='border:1px dashed black'>", unsafe_allow_html=True)
     st.markdown(
-        """<br><b style=" margin-bottom:0px padding-bottom:0px">Crystall Ball aims to make machine learning accessible to all as an Intutive user friendly tool which lets everyone use powers of Machine Learning irrespective of their coding and technical skills.</b>""",
+        """<br><b style=" margin-bottom:0px padding-bottom:0px">Crystall Ball aims to make machine learning accessible to all 
+        as an Intutive user friendly tool which lets everyone use powers of Machine Learning irrespective of their coding and technical 
+        skills.</b>""",
         unsafe_allow_html=True)
 
 #CLASSIFICATION TRAINER=================================================================================================================
-
 if selected == "Classification":
 
     if os.path.exists('./dataset.csv'):
@@ -310,13 +322,16 @@ if selected == "Sample Applications":
         with ab2:
             body = """<h3>Bitcoin Price Prediction:</h3>
             <h5>Use Case:</h5>
-            <p>Crystal Ball includes a sample model for predicting Bitcoin prices, illustrating the application of machine learning in financial markets.</p>
+            <p>Crystal Ball includes a sample model for predicting Bitcoin prices, illustrating the application of
+             machine learning in financial markets.</p>
             <h5>How it Works:</h5>
             <p>The model is trained on historical Bitcoin price data along with relevant features such as trading volume,
-            market sentiment, and other market indicators. The trained model can then forecast future Bitcoin prices based on the input data.</p>
+            market sentiment, and other market indicators. The trained model can then forecast future Bitcoin prices 
+            based on the input data.</p>
             <h5>Significance:</h5>
             <p>Predicting cryptocurrency prices is a challenging task due to market volatility. 
-            This sample application showcases how machine learning can analyze complex data to provide insights into potential price movements.</p>"""
+            This sample application showcases how machine learning can analyze complex data to provide insights into 
+            potential price movements.</p>"""
             st.markdown(body, unsafe_allow_html=True)
         with ab1:
             ins = Image.open("images/bitcoin.jpg")
@@ -330,14 +345,17 @@ if selected == "Sample Applications":
             body = """
             <h3>Player Price Prediction:</h3>
             <h5>Use Case:</h5>
-            <p> Crystal Ball offers a sample application for predicting player salaries, demonstrating the application of machine learning in sports analytics.</p>
+            <p> Crystal Ball offers a sample application for predicting player salaries, demonstrating the application
+             of machine learning in sports analytics.</p>
             <h5>How it Works:</h5>
-            <p>The model is trained on historical data related to players, including factors like player rating, team, position, draft year, and more. By learning
+            <p>The model is trained on historical data related to players, including factors like player rating, team, 
+            position, draft year, and more. By learning
             from historical salary data, 
             the model can predict the salaries of players based on specific input features.</p>
             <h5>Significance:</h5>
             <p>This sample application highlights how machine learning can contribute to talent valuation in sports. 
-            It can be valuable for sports teams, agents, and analysts in making informed decisions about player contracts and team composition.</p>
+            It can be valuable for sports teams, agents, and analysts in making informed decisions about player contracts
+             and team composition.</p>
             """
             st.markdown(body, unsafe_allow_html=True)
         st.markdown("<hr style='border:1px solid grey'>", unsafe_allow_html=True)
